@@ -6,8 +6,8 @@ what the change adds, and it lists what the change fixed.
 
 Each finding shows inline on the pull request, for example:
 
-> **archprint: AP-001** A request-entry file must not import the database client directly. When this rule was
-> adopted, 40 of 40 files followed it (confidence floor 91%).
+> **archprint: AP-001** A request handler must not import the database client directly. When this rule was
+> adopted, 40 of 40 files it applies to followed it (confidence 91%).
 
 ## Set up
 

@@ -54,7 +54,7 @@ Set `fail-on: new`, then mark the job a required status check in your branch pro
 | `path` | the app in `.archprint/config.json` | App directory to check, for a monorepo. |
 | `working-directory` | `.` | Directory that holds `.archprint/`. |
 | `base` | the pull request's base commit | Branch or commit to compare against. |
-| `archprint-version` | `0.10.0` | archprint version to run, pinned for reproducible results. |
+| `archprint-version` | `0.10.1` | archprint version to run, pinned for reproducible results. |
 | `node-version` | `22` | Node.js version. |
 
 ## What it checks, and what it does not
@@ -63,6 +63,9 @@ Set `fail-on: new`, then mark the job a required status check in your branch pro
   mechanical ones; rules that depend on guessing a folder's role are never enforced.
 - Rules adopted or changed in the same pull request are listed in the summary but never counted against it. A rule
   removed in the pull request is flagged.
+- Removing rules is never silent. A pull request that deletes `.archprint/rules.json` or `config.json` gets a
+  warning listing every rule that stops being checked. To require a reviewer for that, add `/.archprint/` and
+  `/.github/workflows/` to CODEOWNERS and turn on "Require review from Code Owners".
 - Set up with archprint 0.8.x or earlier? Run `npx archprint generate` once to write `rules.json`; until then the
   check posts a notice that it did not run.
 

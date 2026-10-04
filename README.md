@@ -2,8 +2,7 @@
 
 A GitHub Action that flags the architecture-rule violations a pull request **introduces**, with the evidence for
 each rule, using [archprint](https://github.com/Tommkruix/archprint). It never reports the existing backlog, only
-what the change adds, and it counts what the change
-fixed.
+what the change adds, and it counts what the change fixed.
 
 Each finding shows inline on the pull request, for example:
 

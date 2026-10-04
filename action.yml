@@ -25,7 +25,7 @@ inputs:
   archprint-version:
     description: archprint version to run (exact, for reproducible results).
     required: false
-    default: 0.10.1
+    default: 0.10.2
   node-version:
     description: Node.js version.
     required: false

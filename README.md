@@ -54,7 +54,7 @@ Set `fail-on: new`, then mark the job a required status check in your branch pro
 | `path` | the app in `.archprint/config.json` | App directory to check, for a monorepo. |
 | `working-directory` | `.` | Directory that holds `.archprint/`. |
 | `base` | the pull request's base commit | Branch or commit to compare against. |
-| `archprint-version` | `0.10.3` | archprint version to run, pinned for reproducible results. |
+| `archprint-version` | `0.10.4` | archprint version to run, pinned for reproducible results. |
 | `node-version` | `22` | Node.js version. |
 
 ## What it checks, and what it does not

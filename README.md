@@ -54,20 +54,23 @@ Set `fail-on: new`, then mark the job a required status check in your branch pro
 | `path` | the app in `.archprint/config.json` | App directory to check, for a monorepo. |
 | `working-directory` | `.` | Directory that holds `.archprint/`. |
 | `base` | the pull request's base commit | Branch or commit to compare against. |
-| `archprint-version` | `0.10.5` | archprint version to run, pinned for reproducible results. |
+| `archprint-version` | `0.12.0` | archprint version to run, pinned for reproducible results. |
 | `node-version` | `22` | Node.js version. |
 
 ## What it checks, and what it does not
 
-- Only the rules your team adopted with `archprint init` or `generate`, from `.archprint/rules.json`. Only the
-  mechanical ones; rules that depend on guessing a folder's role are never enforced.
+- Only the rules your team adopted with `archprint init` or `generate`, recorded in `.archprint/config.json`. Only
+  the mechanical ones; rules that depend on guessing a folder's role are never enforced.
 - Rules adopted or changed in the same pull request are listed in the summary but never counted against it. A rule
   removed in the pull request is flagged.
-- Removing rules is never silent. A pull request that deletes `.archprint/rules.json` or `config.json` gets a
+- A file with a real reason to break a rule can be allowed with
+  `npx archprint allow <rule> <file> --reason "..."`. The check stops counting it, lists it with its reason in the
+  summary, and points out an allowed exception the code no longer needs.
+- Removing rules is never silent. A pull request that deletes `.archprint/config.json`, or the rules in it, gets a
   warning listing every rule that stops being checked. To require a reviewer for that, add `/.archprint/` and
   `/.github/workflows/` to CODEOWNERS and turn on "Require review from Code Owners".
-- Set up with archprint 0.8.x or earlier? Run `npx archprint generate` once to write `rules.json`; until then the
-  check posts a notice that it did not run.
+- Set up with archprint 0.8.x or earlier? Run `npx archprint generate` once to record the adopted rules; until
+  then the check posts a notice that it did not run. Setups from 0.9.0 to 0.11.x work as they are.
 
 ## Security
 
